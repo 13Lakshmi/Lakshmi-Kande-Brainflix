@@ -1,0 +1,138 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: "AvenirNext LT Pro";
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+    }
+    &__logo{
+        margin-top: 1rem;
+        @include tablet{
+            margin: 1.5rem 0 0 1.5rem;
+            width:9rem;
+        }
+        @include desktop{
+             margin: 1.7rem 0 0 6.5rem;
+             width:7rem;
+        }
+    }
+    &__subcontainer{
+        display: flex;
+        flex-direction: row;
+    }
+    &__searchicon{
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        margin: 1rem 0 0 1.5rem;
+        @include tablet{
+            margin:2rem 0 0 6.5rem;
+        }
+        @include desktop{
+            margin:1.7rem 1rem 0 31rem;
+        }
+    }
+    &__input{
+        margin: 0.5rem 0 1rem 1rem;
+        padding:0.5rem 4rem 0.5rem 0;
+        border:1px solid $silver;
+        border-radius: 0.3rem;
+        @include tablet{
+            margin:1rem 1rem 0 5.5rem;
+            padding:0.9rem 4rem 1rem 0;
+        }
+        @include desktop{
+            margin:1rem 1rem 0 30rem;
+            padding:0.7rem 4rem 0.7rem 0;
+        }
+    }
+    ::placeholder{
+        padding-left: 2rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $black;
+        @include tablet{
+            padding-left: 2.3rem;
+        }
+    }
+    &__avataricon{
+        border-radius: 50%;
+        height:2.5rem;
+        width:2.5rem;
+        margin: 0 0 0 1rem;
+        @include tablet{
+            display: none;
+            margin: 0;
+        }  
+    }
+    &__upload{
+        @include tablet{
+        display:flex;
+        flex-direction: row;
+        }
+    }
+    &__uploadname{
+        background-color: $blue;
+        border: none;
+        border-radius: 0.3rem;
+        width:18rem;
+        height:2.5rem;
+        color:$white;
+        margin-left: 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        @include tablet{
+            width:10rem;
+            height:3rem;
+            margin: 1rem 0 0 0;
+        }
+        @include desktop{
+            height:2.5rem;
+            width:10rem;
+            font-size: 0.7rem;
+        }
+    }
+    &__uploadicon{
+       display: flex;
+       flex-direction: column;
+       align-items: flex-end;
+       position: absolute;
+       margin:0.5rem 0 0 1.5rem;
+       @include tablet{
+            margin: 1.7rem 0 0 0.5rem;
+       }
+       @include desktop{
+            margin: 1.5rem 0 0 0.5rem;
+       }
+ 
+    }
+    &__avatarricon{
+       display: none;
+        margin:0;
+
+        @include tablet{
+        display: flex;
+        border-radius: 50%;
+        height:3rem;
+        width:3rem;
+        margin: 1rem 0 0 1rem;
+        object-fit:cover;
+        }
+        @include desktop{
+         height: 2.5rem;
+         width: 2.5rem;
+        }
+
+    }
+}
