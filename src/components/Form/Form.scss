@@ -1,24 +1,59 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
 
-*{
-    box-sizing: border-box;
-}
-body {
-    font-family: "AvenirNext LT Pro";
-}
+
 .form{
+    display: flex;
+    width:100%;
+    &__avatar{
+        width:20%;
+    }
+    &__avataricon{
+        border-radius: 50%;
+        height:2.8rem;
+        width:2.8rem;
+        margin: 3.5rem 0.5rem 0 0.7rem;
+
+    }
+    &__input{
+        width:80%;
+    }
     &__text{
         color:$silver;
-        margin-left: 1rem;
+        margin:  1rem 0 0.5rem 0.3rem;
+        font-size: 0.9rem;
     }
     &__textarea{
-        margin-left: 1rem;
-        height:6rem;
-        width:17rem;
+        margin-right: 1rem;
+        margin-left: 0.3rem;
+        height:7rem;
+        width:15rem;
+        color:$mercury;
+        border-radius: 0.25rem;
+        padding:0.75rem;
+        background-color: $mercury;
     }
     ::placeholder{
         color:$black;
         margin:2rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    &__buttonicon{
+        position: absolute;
+        margin:1.1rem 0 0 1rem;
+        width:1.4rem;
+    }
+    &__buttonname{
+        color:white;
+        background-color: $blue;
+        border: none;
+        border-radius:0.25rem;
+        height:2.5rem;
+        width:15rem;
+        font-size: 1rem;
+        font-weight: 700;
+        margin:0.5rem 1rem 0 0.3rem;
     }
 }
