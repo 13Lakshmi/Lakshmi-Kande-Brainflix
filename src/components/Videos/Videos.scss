@@ -10,61 +10,85 @@ body {
     font-family: "AvenirNext LT Pro";
 }
 .container{
-
+    
+    margin:0 1rem;
+    
+    @include desktop{
+        width: 30rem;
+        position:relative;
+        left:47rem;
+        top:-44rem;
+        border-left: 0.2rem solid $mercury;
+    }
     &__name{
         color: $silver;
-        margin-left:1rem;
+        margin-left: 1rem;
+       
+        @include subHeader;
     }
-    &__videos{
-        width:100%;
-    }
-    &__video{
+    &__block{
         display: flex;
-        flex-direction: row;
+         flex-direction: row;
+         @include tablet{
+            width: 52%;
+         }
+    }
+    &__list{
+        margin:0;
+        padding:0;
     }
     &__img{
-        width:7rem;
+        width:6rem;
         height:4rem;
         border-radius: 0.3rem;
         margin: 0.5rem 0  1rem 1rem;
         @include tablet{
-            width:11rem;
-            height:6rem;
+            width:9rem;
+            height:5rem;
             border-radius: 0.3rem;
             display:inline ;
             margin: 0.5rem 0  1rem 1rem;
         
         }
-    }
-    &__picture{
-        width:40%;
-        @include tablet{
-        width:25%;
+        @include desktop{
+            width:7rem;
+            height:4rem;
         }
     }
-    &__heading{
-        width:60%;
-        @include tablet{
-        width:30%;
+    &__item{
+        list-style: none;
+        @include desktop{
+        display: flex;
         }
     }
-
-   
-
    
     &__title{  
         margin:0.5rem 0.5rem 0 1rem;
-        font-size: 0.8rem;
+        @include subHeader(0.65rem,1rem,700);
+        
         @include tablet{
         margin:0.5rem 0.5rem 0 1rem;
-        font-size: 1rem;
-        
+        @include subHeader(0.8rem);
         }
+        @include desktop{
+
+            margin:0.5rem 0.5rem 0 1rem;
+            @include subHeader(0.6rem,1rem,600);
+            }
     }
     &__channel{
-        margin:1.5rem 0 0 1rem;
+        margin:1.2rem 0 0 1rem;
+        @include bodyCopy;
+    
         @include tablet{
-        margin:2.5rem 0 0 1rem; 
+        margin:3.5rem 0 0 1rem;
+        @include bodyCopy(0.875,0,600);
+        }
+
+        @include desktop{
+            margin:2.1rem 0 0 1rem;
+            @include bodyCopy(0.8,0,500);
+            width:8rem;
         }
     }
 }

@@ -1,23 +1,31 @@
 import "./Comments.scss";
-import ConvertDate from "../../util/date";
-function Comments({statevariable}) {
-    console.log(statevariable);
+function Comments(props) {
 
     return (
-        <div className="formcomments">
+        <div className="comments">
         {
-            statevariable.comments.map((comment) => (
+            props.comments.map((comment) => (
                 <div key={comment.id}>
-                <div className="formcomments__list">
-                    
-                <div className="form__divider"></div>
-                
-                <p className="formcomments__channel">{new Date(comment.timestamp).toLocaleDateString()}</p>
-                <p className="formcomments__channel">{comment.name}</p>
-                <p className="formcomments__title">{comment.comment}</p>
-                
+                 <div className="comments__divider">
+                    <div className="comments__left">
+                        <div className="comments__picture">
+                         </div>
+                     </div>
+                <div className="comments__right">
+                    <div className="comments__top">
+                        <div className="comments__namediv">
+                        <p className="comments__name">{comment.name}</p>
+                        </div>
+                        <div className="comments__datediv">
+                        <p className="comments__date">{new Date(comment.timestamp).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                    <div className="comments__bottom">
+                        <p className="comments__description">{comment.comment}</p>
+                    </div>
                 </div>
                 </div>
+            </div>
             ))
             }
         </div>
@@ -31,26 +39,6 @@ export default Comments;
 
 
 
-// import CommentsArray from "../../Data/Videos-details.json";
-// function Comments({statevariable}) {
-//     return (
-//         <div className="comments">
-//         {
-//         // CommentArray*.commentList?.comment
-//             //CommentArray.map((commentList) => (
-//                statevariable.comments.map((comment) => {
-//         <div key={comment.id}
-//     })
-//                 <ul>
-//                     // for each comment in commentList, create a <div>
-//                 </ul>
-//             ))
-//             }
-//         </div>
-    
-//     );
-// }
-// export default Comments;
 
 
 
@@ -64,9 +52,4 @@ export default Comments;
 
 
 
-// Videos.map((video) => (
-//     <div key={video.id}>
-//         <div className="container__video">
-//             <div className="container__picture">
-//                 <img src={video.image} className="container__img" alt="video" />
-//             </div>
+

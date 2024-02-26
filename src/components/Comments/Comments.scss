@@ -1,10 +1,64 @@
-// @use "../../styles/partials/variables" as *;
-// @use "../../styles/partials/mixins" as *;
-// @use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
 
-// .formcomments{
-//     &__list{
-//         border-bottom: 1px solid red;
+.comments{
+    &__divider{
+        display: flex;
+        border-bottom:2px solid $mercury;
+        margin:0 1.5rem;
+        @include desktop{
+            width:57%;
+        }
+
+    }
+    &__left{
+        width:10%;
        
-//     }
-// }
+    }
+    &__right{
+        width:90%;
+       
+    }
+    &__top{
+        display: flex; 
+        justify-content: space-between;
+        margin:0 0 0 1rem;
+          @include tablet{
+            display: flex;
+            justify-content: space-between;
+          }
+    }
+    &__datediv{
+        display: flex;
+        align-items: right; 
+    }
+    &__name{
+        @include subHeader;
+        margin:1rem 0 0 0;
+        
+    }
+  
+    &__description{
+        @include bodyCopy(0.8rem,1.2rem,400);
+        margin:0 0 1rem 1rem;
+    
+    @include tablet{
+        @include bodyCopy(0.8rem,1.3rem,600)
+    }
+    }
+    &__picture {
+        margin: 1rem 0 0 0;
+        padding: 1rem;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: $mercury;
+        @include tablet{
+            width:3rem;
+            height:3rem;
+ 
+        }
+       
+    }
+}
