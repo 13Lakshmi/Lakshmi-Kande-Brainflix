@@ -3,6 +3,7 @@
 @use "../../styles/partials/fonts" as *;
 
 .header{
+    border-bottom: 1px solid $silver;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -84,7 +85,7 @@
         width:17.6rem;
         height:2.5rem;
         color:$white;
-        margin-left: 1rem;
+        margin:0 0 1rem 1rem;
         font-size: 0.9rem;
         font-weight: 700;
         @include tablet{
@@ -104,6 +105,7 @@
        align-items: flex-end;
        position: absolute;
        margin:0.5rem 0 0 1.5rem;
+      
        @include tablet{
             margin: 1.7rem 0 0 0.5rem;
        }

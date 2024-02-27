@@ -1,11 +1,9 @@
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import './App.scss';
 import Header from './components/Header/Header';
-import HeroVideo from './components/Hero/HeroVideo';
-import videoDetails from '../../lakshmi-kande-brainflix/src/Data/Video-details.json';
-import VideoList from './components/Videos/Videos';
-import Form from './components/Form/Form';
-import Comments from './components/Comments/Comments';
-import { useState } from 'react';
+import HomePage from './pages/HomePage/HomePage';
+import UploadVideo from './pages/UploadVideo/UploadVideo';
+
 
 
 
@@ -14,33 +12,18 @@ import { useState } from 'react';
 
 function App() {
 
-  const [heroVideo, setheroVideo] = useState(videoDetails[0]);
-  const [videos, setVideos] = useState(videoDetails);
-  const [comments, setcomments] = useState(videoDetails[0].comments);
-  
-  function handleVideoClick(id) {
-
-    const clickedVideo = videos.find((video) => {
-      return video.id === id;
-    });
-    setheroVideo(clickedVideo);
-    setcomments(clickedVideo.comments)
-  }
-
-
   return (
     <div className="App">
+      
+      <BrowserRouter>
       <Header />
-      <HeroVideo heroVideo={heroVideo}
-      />
-      <Form />
-      <Comments comments={comments}/>
-
-
-      <VideoList videos={videos}
-      heroVideo={heroVideo}
-        handleVideoClick={handleVideoClick}
-      />
+      <Routes>
+      <Route path="/" element={<HomePage />} /> 
+      <Route path="/uploadvideo" element={<UploadVideo />} />
+      </Routes>
+      </BrowserRouter>
+     
+     
     </div>
   );
 

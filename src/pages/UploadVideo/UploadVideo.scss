@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+.uploadvideo{
+    &__title{
+        margin: 1.5rem 0 0 1rem;
+    }
+    &__subtitle{
+        @include sectionHeader;
+        color:$silver;
+        margin:1rem 0 0 1rem;
+    }
+    &__image{
+        width:90%;
+        height:60%;
+        margin: 0 1rem 0 1rem;
+    }
+    &__label{
+        @include sectionHeader;
+        color:$silver;
+        display: flex;
+        flex-direction: column;
+        margin:0.5rem 0 0 1rem;
+    }
+    &__input{
+        width:90%;
+        height:2.3rem;
+        border: 1.5px solid $silver;
+        border-radius: 0.2rem;
+        margin: 0.3rem 1rem 0.5rem 1rem;
+        
+    }
+    ::placeholder{
+        margin:0 0 0 2rem;
+        color:$black;
+    }
+    &__textarea{
+        width:90%;
+        height: 5.5rem;
+        border: 1.5px solid $silver;
+        border-radius: 0.2rem;
+        margin: 0.3rem 1rem 0.5rem 1rem;
+    }
+    &__icon{
+        position: absolute;
+        color: $white;
+        width: 1.3rem;
+        margin:1rem 0 0 2rem;
+    }
+    &__buttonname{
+        background-color:$blue;
+        color:$white;
+        @include Labels;
+        border: none;
+        border-radius: 0.2rem;
+        width:90%;
+        height:2.3rem;
+        margin:0.5rem 1rem 2rem 1rem;
+    }
+    &__name{
+        color:$blue;
+        @include subHeader;
+        text-align: center;
+    }
+
+}
