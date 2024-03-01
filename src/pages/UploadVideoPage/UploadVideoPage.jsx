@@ -1,7 +1,7 @@
 import uploadvideo from "../../assets/Images/Upload-video-preview.jpg";
-import "../../pages/UploadVideo/UploadVideo.scss";
+import "./UploadVideoPage.scss";
 import publish from "../../assets/Icons/publish.svg";
-function UploadVideo() {
+function UploadVideoPage() {
   return (
     <div className="uploadvideo">
       <p className="uploadvideo__title">Upload Video</p>
@@ -44,4 +44,4 @@ function UploadVideo() {
     </div>
   );
 }
-export default UploadVideo;
+export default UploadVideoPage;
