@@ -4,8 +4,10 @@ function VideoList(props) {
 
     return (
         <section className="container">
+            <div className="container__top">
             <h2 className="container__name">NEXT VIDEOS</h2>
-
+            </div> 
+            <div className="container__bottom">
             <ul className="container__list">
 
                 {props.videos.filter((video) => video.id !== props.heroVideo.id).map((video) => {
@@ -30,6 +32,7 @@ function VideoList(props) {
 
                 }
             </ul>
+            </div>
 
         </section>
     );

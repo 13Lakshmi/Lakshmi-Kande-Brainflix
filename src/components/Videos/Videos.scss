@@ -14,17 +14,22 @@ body {
     margin:0 1rem;
     
     @include desktop{
-        width: 30rem;
-        position:relative;
-        left:47rem;
-        top:-45rem;
-        border-left: 0.2rem solid $mercury;
+        border-left: 1px solid $silver;
+        display: flex;
+        flex-direction: column;
+        margin:0 0 0 0;
     }
     &__name{
         color: $silver;
-        margin-left: 1rem;
-       
+        margin:0 0 1rem 1rem;
         @include subHeader;
+        border-top:1px solid $silver;
+        padding:1rem 0 0 0;
+
+        @include desktop{
+            margin: 1rem 0 1rem 2rem;
+            border: none;
+        }
     }
     &__block{
         display: flex;
@@ -36,6 +41,9 @@ body {
     &__list{
         margin:0;
         padding:0;
+        @include desktop{
+            margin:0 0 0 1rem;
+        }
     }
     &__img{
         width:6rem;
@@ -58,22 +66,29 @@ body {
     &__item{
         list-style: none;
         @include desktop{
-        display: flex;
+            display: flex;
+            width: 100%;
         }
     }
+    &__details{
+        @include desktop{
+            width:100%;
+        }
+    }
+    
    
     &__title{  
         margin:0.5rem 0.5rem 0 1rem;
-        @include subHeader(0.65rem,1rem,700);
+        @include bodyCopy(0.65rem,1rem,700);
         
         @include tablet{
         margin:0.5rem 0.5rem 0 1rem;
-        @include subHeader(0.8rem);
+        @include bodyCopy(0.8rem,1rem,600);
         }
         @include desktop{
 
             margin:0.5rem 0.5rem 0 1rem;
-            @include subHeader(0.6rem,1rem,600);
+            @include bodyCopy(0.6rem,1rem,600);
             }
     }
     &__channel{
@@ -81,13 +96,13 @@ body {
         @include bodyCopy;
     
         @include tablet{
-        margin:3.5rem 0 0 1rem;
+        margin:3rem 0 0 1rem;
         @include bodyCopy(0.875,0,600);
         }
 
         @include desktop{
             margin:2.1rem 0 0 1rem;
-            @include bodyCopy(0.8,0,500);
+            @include bodyCopy(0.8rem,0,500);
             width:8rem;
         }
     }

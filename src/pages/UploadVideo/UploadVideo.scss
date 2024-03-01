@@ -1,66 +1,163 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
-.uploadvideo{
-    &__title{
-        margin: 1.5rem 0 0 1rem;
-    }
-    &__subtitle{
-        @include sectionHeader;
-        color:$silver;
-        margin:1rem 0 0 1rem;
-    }
-    &__image{
-        width:90%;
-        height:60%;
-        margin: 0 1rem 0 1rem;
-    }
-    &__label{
-        @include sectionHeader;
-        color:$silver;
-        display: flex;
-        flex-direction: column;
-        margin:0.5rem 0 0 1rem;
-    }
-    &__input{
-        width:90%;
-        height:2.3rem;
-        border: 1.5px solid $silver;
-        border-radius: 0.2rem;
-        margin: 0.3rem 1rem 0.5rem 1rem;
-        
-    }
-    ::placeholder{
-        margin:0 0 0 2rem;
-        color:$black;
-    }
-    &__textarea{
-        width:90%;
-        height: 5.5rem;
-        border: 1.5px solid $silver;
-        border-radius: 0.2rem;
-        margin: 0.3rem 1rem 0.5rem 1rem;
-    }
-    &__icon{
-        position: absolute;
-        color: $white;
-        width: 1.3rem;
-        margin:1rem 0 0 2rem;
-    }
-    &__buttonname{
-        background-color:$blue;
-        color:$white;
-        @include Labels;
-        border: none;
-        border-radius: 0.2rem;
-        width:90%;
-        height:2.3rem;
-        margin:0.5rem 1rem 2rem 1rem;
-    }
-    &__name{
-        color:$blue;
-        @include subHeader;
-        text-align: center;
-    }
 
+.uploadvideo {
+  border-top: 1px solid $silver;
+  &__title {
+        @include pageHeader;
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+        padding: 1rem 0 0 1rem;
+        @include tablet {
+        margin: 0;
+        padding: 2.5rem 0 1rem 1rem;
+        width: 100%;
+        @include pageHeader(2.063rem);
+    }
+        @include desktop {
+        margin: 0 0 0 5rem;
+        }
+  }
+  &__form {
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__subtitle {
+        @include subHeader;
+        color: $silver;
+        margin: 1rem 0 0.4rem 1rem;
+        @include tablet {
+        padding: 2rem 0 0 0;
+        border-top: 1px solid $silver;
+        width: 95%;
+        @include subHeader(0.875rem);
+        }
+        @include desktop {
+        margin: 0 0 0 6rem;
+        }
+  }
+  &__image {
+        width: 90%;
+        height: 60%;
+        margin: 0 1rem 1rem 1rem;
+        @include tablet {
+        width: 50%;
+        height: 23vh;
+        margin: 0 0 1rem 1rem;
+        }
+        @include desktop {
+        width: 7%;
+        height: 18vh;
+        margin: 0.5rem 0 1rem 6rem;
+        }
+  }
+  &__label {
+    @include subHeader;
+    color: $silver;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0 0 1rem;
+    @include tablet {
+      @include subHeader(0.875rem);
+    }
+  }
+
+  &__input {
+        width: 90%;
+        height: 2.5rem;
+        border: 1.5px solid $silver;
+        border-radius: 0.2rem;
+        margin: 0.5rem 1rem 1rem 1rem;
+        padding-left: 1rem;
+        background-color: $mercury;
+        @include tablet {
+        width: 97%;
+        height: 3rem;
+        }
+        @include desktop {
+        width: 27%;
+        height: 3rem;
+        }
+  }
+  ::placeholder {
+    color: $black;
+    @include bodyCopy;
+  }
+  &__textarea {
+    width: 90%;
+    height: 5.5rem;
+    border: 1.5px solid $silver;
+    border-radius: 0.2rem;
+    margin: 0.5rem 1rem 1rem 1rem;
+    padding: 0.8rem 0 3rem 1rem;
+    background-color: $mercury;
+    @include tablet {
+      width: 97%;
+      height: 6rem;
+    }
+    @include desktop {
+      width: 27%;
+      height: 3rem;
+    }
+    // ::placeholder{
+    //     color:$black;
+    // @include bodyCopy;
+    // }
+  }
+
+  &__second{
+      @include tablet{
+          border-bottom: 1px solid $silver;
+          width:95%;
+      }
+    //   @include desktop{
+    //       width:100%;
+    //   }
+  }
+  &__icon {
+    position: absolute;
+    color: $white;
+    width: 1.3rem;
+    margin: 1rem 0 0 2rem;
+    @include tablet {
+      margin: 2.6rem 10rem 1rem 6rem;
+    }
+  }
+  &__third {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &__buttonname {
+    background-color: $blue;
+    color: $white;
+    @include labels;
+    border: none;
+    border-radius: 0.2rem;
+    width: 90%;
+    height: 2.3rem;
+    margin: 0.5rem 1rem 2rem 1rem;
+    @include tablet {
+      width: 10rem;
+      height: 2.5rem;
+      margin: 2rem 2.3rem 0 0;
+    }
+  }
+  &__name {
+    color: $blue;
+    @include subHeader;
+    text-align: center;
+
+    @include tablet {
+      @include subHeader(0.875);
+      margin: 2.7rem 6rem 0 0;
+    }
+  }
 }

@@ -1,8 +1,8 @@
 import "../Header/Header.scss";
 import logo from "../../assets/Logo/BrainFlix-logo.svg";
-import search from "../../assets/icons/search.svg";
+import search from "../../assets/Icons/search.svg";
 import avatar from "../../assets/Images/avatar.jpg";
-import upload from "../../assets/icons/upload.svg";
+import upload from "../../assets/Icons/upload.svg";
 import { Link } from "react-router-dom";
 
 function Header() {

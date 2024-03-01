@@ -1,6 +1,6 @@
 import "../../components/Form/Form.scss";
 import avatar from "../../assets/Images/avatar.jpg";
-import comment from "../../assets/icons/add_comment.svg"
+import comment from "../../assets/Icons/add_comment.svg"
 
 function Form() {
     return (

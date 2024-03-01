@@ -3,14 +3,14 @@
 @use "../../styles/partials/fonts" as *;
 
 .header{
-    border-bottom: 1px solid $silver;
+    
     display: flex;
     flex-direction: column;
     text-align: center;
 
     @include tablet{
         display: flex;
-        flex-direction: row;
+        flex-direction: row;   
     }
     &__logo{
         margin-top: 1rem;
@@ -45,11 +45,11 @@
         border:1px solid $silver;
         border-radius: 0.3rem;
         @include tablet{
-            margin:1rem 1rem 0 5.5rem;
+            margin:1rem 1rem 1rem 5.5rem;
             padding:0.9rem 4rem 1rem 0;
         }
         @include desktop{
-            margin:1rem 1rem 0 30rem;
+            margin:1rem 1rem 1rem 30rem;
             padding:0.7rem 4rem 0.7rem 0;
         }
     }

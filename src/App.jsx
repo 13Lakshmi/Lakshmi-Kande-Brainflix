@@ -4,12 +4,6 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import UploadVideo from './pages/UploadVideo/UploadVideo';
 
-
-
-
-
-
-
 function App() {
 
   return (
@@ -19,7 +13,8 @@ function App() {
       <Header />
       <Routes>
       <Route path="/" element={<HomePage />} /> 
-      <Route path="/uploadvideo" element={<UploadVideo />} />
+      <Route path="/:id" element={<HomePage />} />
+       <Route path="/uploadvideo" element={<UploadVideo />} />
       </Routes>
       </BrowserRouter>
      

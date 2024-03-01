@@ -1,13 +1,14 @@
 import "../Hero/HeroVideo.scss";
-import views from "../../assets/icons/views.svg";
-import likes from "../../assets/icons/likes.svg";
+// import views from "../../assets/Icons/views.svg";
+// import likes from "../../assets/Icons/likes.svg";
 function HeroVideo(props) {
     return (
 
         <section className="selectedVideo">
             <video poster={props.heroVideo.image} className="selectedVideo__video" controls={true}></video>
+        
 
-            <h2 className="selectedVideo__title">Tech Trends: {props.heroVideo.title}</h2>
+            {/* <h2 className="selectedVideo__title">Tech Trends: {props.heroVideo.title}</h2>
             <div className="selectedVideo__divider">
                 <div className="selectedVideo__left">
                     <p className="selectedVideo__channel">By {props.heroVideo.channel}</p>
@@ -27,7 +28,7 @@ function HeroVideo(props) {
             </div>
             <div className="selectedVideo__description">
                 <p className="selectedVideo__copy"> {props.heroVideo.description}</p>
-            </div>
+            </div> */}
 
 
         </section >

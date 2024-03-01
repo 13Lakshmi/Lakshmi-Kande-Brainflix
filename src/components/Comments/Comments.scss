@@ -3,22 +3,18 @@
 @use "../../styles/partials/fonts" as *;
 
 .comments{
+    
+    @include desktop{
+        margin: 0 0 0 4rem;
+    }
     &__divider{
         display: flex;
-        border-bottom:2px solid $mercury;
-        margin:0 1.5rem;
+        border-top:2px solid $mercury;
+        margin:0 1rem;
+        width:95%;
         @include desktop{
-            width:57%;
+            width:98%;
         }
-
-    }
-    &__left{
-        width:10%;
-       
-    }
-    &__right{
-        width:90%;
-       
     }
     &__top{
         display: flex; 
@@ -27,6 +23,9 @@
           @include tablet{
             display: flex;
             justify-content: space-between;
+          }
+          @include desktop{
+            margin:0 1rem;
           }
     }
     &__datediv{
@@ -38,13 +37,19 @@
         margin:1rem 0 0 0;
         
     }
-  
+    &__right{
+        margin:0 1rem;
+    }
     &__description{
-        @include bodyCopy(0.8rem,1.2rem,400);
+        @include bodyCopy(0.75rem,1rem,600);
         margin:0 0 1rem 1rem;
     
     @include tablet{
-        @include bodyCopy(0.8rem,1.3rem,600)
+        @include bodyCopy(0.92rem,1.3rem,600);
+    }
+    @include desktop{
+        @include bodyCopy(1.02rem,1.3rem,600);
+        margin:0 0 1rem 1rem; 
     }
     }
     &__picture {
@@ -58,6 +63,11 @@
             width:3rem;
             height:3rem;
  
+        }
+        @include desktop{
+            margin: 1.6rem 0 0 1rem;
+            width:2.5rem;
+            height:2.5rem;
         }
        
     }
