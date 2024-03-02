@@ -1,1 +1,8 @@
-@use "../../lakshmi-kande-brainflix/src/styles/partials/global.scss" as *;
+
+ @use "./styles/partials/fonts.scss";
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: "AvenirNext LT Pro";
+}

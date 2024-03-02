@@ -16,9 +16,9 @@ const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 function HomePage() {
   const [heroVideo, setHeroVideo] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
-  const [comments, setComments] = useState([]);
+ // const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({ name: "", comment: "" });
-  
+
   // const [comments, setcomments] = useState(videoDetails[0].comments);
 
   const params = useParams();
@@ -49,7 +49,7 @@ function HomePage() {
         );
         console.log(response);
         setSelectedVideo(response.data);
-        setComments(response.data.comments);
+      //  setComments(response.data.comments);
       } catch (e) {
         console.log("error:", e);
       }
@@ -79,55 +79,79 @@ function HomePage() {
         newComment
       );
       console.log("comment added", response.data);
-      setComments([...comments, response.data]);
+      // setComments([...comments, response.data]);
     } catch (e) {
       console.log("error:", e);
     }
   };
 
-  console.log(selectedVideo);
+  // console.log(selectedVideo);
   return (
-    <div>
+    <div className="homepage">
       <video
         poster={selectedVideo.image}
         alt={selectedVideo.title}
         className="homepage__fullimage"
         controls={true}
       />
-
+      <Main  selectedVideo={selectedVideo}/>
+      
       <div>
-      <p> {selectedVideo.channel}</p>
-      <p>{selectedVideo.views}</p>
-      {new Date(selectedVideo.timestamp).toLocaleDateString()}
-      <p>{selectedVideo.likes}</p>
+        <Form onSubmit={handleCommentSubmit} />
+      </div>
+      <div>
+        <Comments selectedVideo={selectedVideo} />
       </div>
 
-        <div>
-        <Form onSubmit={handleCommentSubmit} />
-        </div>
-        <div>
-        <Comments comments={comments} />
-        </div>
+     
 
-        <div className="homepage">
-        {heroVideo
+      <div className="homepage__videolist">
+        <p className="homepage__subtitle">NEXT VIDEOS</p>
+         {heroVideo
           .filter((video) => video.id !== selectedVideo.id)
           .map((video) => (
             <Link key={video.id} to={`/videos/${video.id}`}>
-              {/* onClick={() => setSelectedVideo(video)} */}
               <img
                 src={video.image}
                 alt={video.title}
                 className="homepage__video"
               />
-
+              <div>
+                <p className="homepage__channel">{video.channel}</p>
+                <p className="homepage__title">{video.title}</p>
+              </div>
             </Link>
           ))}
       </div>
+
+
     </div>
   );
 }
 export default HomePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const [videos, setVideos] = useState(videoDetails);
 // const [comments, setcomments] = useState(videoDetails[0].comments);

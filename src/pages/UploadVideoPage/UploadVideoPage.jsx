@@ -5,7 +5,7 @@ function UploadVideoPage() {
   return (
     <div className="uploadvideo">
       <p className="uploadvideo__title">Upload Video</p>
-      <div className="uploadVideo__form">
+      <div className="uploadvideo__form">
         <div className="uploadvideo__first">
           <p className="uploadvideo__subtitle">VIDEO THUMBNAIL</p>
           <img src={uploadvideo} alt="img" className="uploadvideo__image" />

@@ -1,10 +1,10 @@
 import "./Comments.scss";
 function Comments(props) {
-
+    console.log(props.selectedVideo);
     return (
         <div className="comments">
-        {
-            props.comments.map((comment) => (
+        {props.selectedVideo.comments
+            ? props.selectedVideo.comments.map((comment) => (
                 <div key={comment.id}>
                  <div className="comments__divider">
                     <div className="comments__left">
@@ -26,7 +26,7 @@ function Comments(props) {
                 </div>
                 </div>
             </div>
-            ))
+            )) :null
             }
         </div>
     

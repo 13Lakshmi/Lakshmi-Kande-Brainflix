@@ -4,25 +4,30 @@
 
 .uploadvideo {
   border-top: 1px solid $silver;
+  
   &__title {
+    
         @include pageHeader;
         width: 100%;
         margin: 0 0 1.5rem 0;
         padding: 1rem 0 0 1rem;
         @include tablet {
-        margin: 0;
-        padding: 2.5rem 0 1rem 1rem;
-        width: 100%;
+        border-bottom: 1px solid $silver;
+        margin: 0 0 0 1rem;
+        width:95%;
+        padding: 2.5rem 0 1rem 0;
+        
         @include pageHeader(2.063rem);
     }
         @include desktop {
         margin: 0 0 0 5rem;
+        width:90%;
         }
   }
   &__form {
     @include desktop {
       display: flex;
-      flex-direction: row;
+      margin: 0 0 1rem 0;
     }
   }
 
@@ -31,13 +36,12 @@
         color: $silver;
         margin: 1rem 0 0.4rem 1rem;
         @include tablet {
-        padding: 2rem 0 0 0;
-        border-top: 1px solid $silver;
-        width: 95%;
+        padding: 1rem 0 0 0;  
         @include subHeader(0.875rem);
         }
         @include desktop {
-        margin: 0 0 0 6rem;
+        margin: 1rem 0 0 6rem;
+        
         }
   }
   &__image {
@@ -50,8 +54,8 @@
         margin: 0 0 1rem 1rem;
         }
         @include desktop {
-        width: 7%;
-        height: 18vh;
+        width: 80%;
+        height: 23vh;
         margin: 0.5rem 0 1rem 6rem;
         }
   }
@@ -60,18 +64,18 @@
     color: $silver;
     display: flex;
     flex-direction: column;
-    margin: 0.5rem 0 0 1rem;
+    margin: 0.5rem 0 0 0;
     @include tablet {
       @include subHeader(0.875rem);
     }
   }
 
   &__input {
-        width: 90%;
+        width: 94%;
         height: 2.5rem;
         border: 1.5px solid $silver;
         border-radius: 0.2rem;
-        margin: 0.5rem 1rem 1rem 1rem;
+        margin: 0.5rem 1rem 1rem 0;
         padding-left: 1rem;
         background-color: $mercury;
         @include tablet {
@@ -79,7 +83,7 @@
         height: 3rem;
         }
         @include desktop {
-        width: 27%;
+        width: 90%;
         height: 3rem;
         }
   }
@@ -88,11 +92,11 @@
     @include bodyCopy;
   }
   &__textarea {
-    width: 90%;
+    width: 94%;
     height: 5.5rem;
     border: 1.5px solid $silver;
     border-radius: 0.2rem;
-    margin: 0.5rem 1rem 1rem 1rem;
+    margin: 0.5rem 1rem 1rem 0;
     padding: 0.8rem 0 3rem 1rem;
     background-color: $mercury;
     @include tablet {
@@ -100,32 +104,26 @@
       height: 6rem;
     }
     @include desktop {
-      width: 27%;
-      height: 3rem;
+      width: 90%;
+      height: 7rem;
     }
-    // ::placeholder{
-    //     color:$black;
-    // @include bodyCopy;
-    // }
   }
-
+  &__first{
+    @include desktop{
+      width:40%;
+    }
+  }
   &__second{
+    margin:0 0 0 1rem;
       @include tablet{
-          border-bottom: 1px solid $silver;
+         
+          margin:0 0 0 1rem;
           width:95%;
       }
-    //   @include desktop{
-    //       width:100%;
-    //   }
-  }
-  &__icon {
-    position: absolute;
-    color: $white;
-    width: 1.3rem;
-    margin: 1rem 0 0 2rem;
-    @include tablet {
-      margin: 2.6rem 10rem 1rem 6rem;
-    }
+      @include desktop{
+          width:60%;
+          margin:3rem 0 0 3rem;
+      }
   }
   &__third {
     display: flex;
@@ -133,8 +131,25 @@
     @include tablet {
       display: flex;
       flex-direction: row-reverse;
+      border-top: 1px solid $silver;
+      margin:0 2rem 0 1rem;
+    }
+    @include desktop{
+      border-top: 1px solid $silver;
+      margin:0 4rem 0 5rem;
     }
   }
+  &__icon {
+    position: absolute;
+    color: $white;
+    width: 1.3rem;
+    margin: 1rem 0 0 2rem;
+    @include tablet {
+      margin: 2.6rem 8rem 1rem 8rem;
+    }
+  }
+ 
+ 
   &__buttonname {
     background-color: $blue;
     color: $white;
@@ -147,7 +162,10 @@
     @include tablet {
       width: 10rem;
       height: 2.5rem;
-      margin: 2rem 2.3rem 0 0;
+      margin: 2rem 0 0 0;
+    }
+    @include desktop{
+      margin:2rem 0 0 0;
     }
   }
   &__name {
@@ -157,7 +175,7 @@
 
     @include tablet {
       @include subHeader(0.875);
-      margin: 2.7rem 6rem 0 0;
+      margin: 2.7rem 5rem 0 0;
     }
   }
 }
