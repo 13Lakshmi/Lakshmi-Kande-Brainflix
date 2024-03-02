@@ -5,7 +5,7 @@ function HeroVideo(props) {
     return (
 
         <section className="selectedVideo">
-            <video poster={props.heroVideo.image} className="selectedVideo__video" controls={true}></video>
+            <video poster={props.selectedVideo.image} className="selectedVideo__video" controls={true}></video>
         
 
             {/* <h2 className="selectedVideo__title">Tech Trends: {props.heroVideo.title}</h2>

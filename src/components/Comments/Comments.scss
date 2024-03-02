@@ -19,7 +19,7 @@
     &__top{
         display: flex; 
         justify-content: space-between;
-        margin:0 0 0 1rem;
+        margin:0 0 0 0.5rem;
           @include tablet{
             display: flex;
             justify-content: space-between;
@@ -34,27 +34,25 @@
     }
     &__name{
         @include subHeader;
-        margin:1rem 0 0 0;
-        
+        margin:1rem 0 0 0;    
     }
     &__right{
-        margin:0 1rem;
+        margin:0 0.5rem;    
     }
     &__description{
         @include bodyCopy(0.75rem,1rem,600);
-        margin:0 0 1rem 1rem;
+        margin:0 0 1rem 0.5rem;
     
-    @include tablet{
-        @include bodyCopy(0.92rem,1.3rem,600);
-    }
-    @include desktop{
-        @include bodyCopy(1.02rem,1.3rem,600);
-        margin:0 0 1rem 1rem; 
-    }
+        @include tablet{
+            @include bodyCopy(0.92rem,1.3rem,600);
+        }
+        @include desktop{
+            @include bodyCopy(1.02rem,1.3rem,600);
+            margin:0 0 1rem 1rem; 
+        }
     }
     &__picture {
         margin: 1rem 0 0 0;
-        padding: 1rem;
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
