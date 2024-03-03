@@ -1,127 +1,116 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
-
-
 .form {
-    @include desktop{
-        margin: 0 0 0 4rem;
-    }
-    
-    margin:0 0.3rem;
+  margin: 0 0.3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include tablet {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin: 0 0 0 1.2rem;
+  }
+  @include desktop {
+    margin: 0 0 0 4rem;
+  }
+
+  &__headingname {
+    @include subHeader;
+    margin: 0 0 0 0.8rem;
+  }
+
+  &__conversation {
+    display: flex;
+  }
+  &__conversation2 {
+    @include tablet {
+      display: flex;
+    }
+    @include desktop {
+      margin: 0 0 0 1.3rem;
+    }
+  }
+  &__avatar {
+    width: 20%;
 
     @include tablet {
-        display: flex;
-        flex-direction: column;
+      width: 4rem;
     }
+  }
 
-    &__headingname {
-        @include subHeader;
-        margin: 0 0 0 0.8rem;
+  &__avataricon {
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 2.7rem 0.5rem 0 0;
+
+    @include tablet {
+      margin-top: 2.5rem;
     }
-
-    &__conversation {
-        display: flex;
-
+    @include desktop {
+      margin: 2.5rem 0 0 2rem;
     }
-    &__conversation2{
-        @include tablet{
-        display: flex;
+  }
+
+  &__input {
+    width: 80%;
+  }
+
+  &__text {
+    color: $silver;
+    margin: 1rem 0 0.5rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  &__textarea {
+    margin: 0 0 0 0.4rem;
+    height: 7rem;
+    width: 15rem;
+    color: $silver;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    background-color: $mercury;
+
+    @include tablet {
+      width: 27rem;
+      height: 3rem;
+      margin: 0 0.5rem 0 1rem;
     }
-    @include desktop{
-        margin: 0 0 0 2rem;
+  }
+
+  ::placeholder {
+    color: $black;
+    margin: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  &__buttonicon {
+    position: absolute;
+    margin: 1.1rem 0 0 1.2rem;
+    width: 1.4rem;
+
+    @include tablet {
+      width: 1.5rem;
+      margin-top: 3.3rem;
     }
+  }
+
+  &__buttonname {
+    color: white;
+    background-color: $blue;
+    border: none;
+    border-radius: 0.25rem;
+    height: 2.5rem;
+    width: 15rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.5rem 1rem 1.5rem 0.5rem;
+    @include tablet {
+      width: 11.5rem;
+      margin-top: 2.5rem;
+      height: 3.2rem;
     }
-    &__avatar {
-        width: 20%;
-
-        @include tablet {
-            width: 4rem;
-        }
-    }
-
-    &__avataricon {
-        border-radius: 50%;
-        height: 2.5rem;
-        width: 2.5rem;
-        margin: 2rem 0.5rem 0 0;
-
-        @include tablet {
-            margin-top: 2.5rem;
-        }
-        @include desktop {
-            margin: 2.5rem 0 0 2rem;
-        }
-    }
-   
-
-    &__input {
-        width: 80%;
-    }
-
-    &__text {
-        color: $silver;
-        margin: 1rem 0 0.5rem 0.3rem;
-        font-size: 0.9rem;
-    }
-
-    &__textarea {
-        margin:0 0 0 0.4rem;
-        height: 7rem;
-        width: 15rem;
-        color: $silver;
-        border-radius: 0.25rem;
-        padding: 0.75rem;
-        background-color: $mercury;
-
-        @include tablet {
-            width:30rem;
-            height:3rem;
-            margin:0 0.5rem 0 0.3rem;
-        }
-
-    }
-
-    ::placeholder {
-        color: $black;
-        margin: 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    
-    &__buttonicon {
-        position: absolute;
-        margin: 1.1rem 0 0 1.2rem;
-        width: 1.4rem;
-
-        @include tablet {
-            width: 1.5rem;
-            margin-top: 3.3rem;
-
-        }
-    }
-
-    &__buttonname {
-        color: white;
-        background-color: $blue;
-        border: none;
-        border-radius: 0.25rem;
-        height: 2.5rem;
-        width: 15rem;
-        font-size: 1rem;
-        font-weight: 700;
-        margin: 0.5rem 1rem 1.5rem 0.5rem;
-        
-        
-
-        @include tablet {
-            width: 11.5rem;
-            margin-top: 2.5rem;
-            height: 3.2rem;
-        }
-    }
+  }
 }

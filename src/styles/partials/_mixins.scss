@@ -1,69 +1,53 @@
 @use "./variables" as *;
 
-
-  @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-      @content;
-    }
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
   }
+}
 
-   @mixin desktop {
-     @media screen and (min-width: $desktop-breakpoint) {
-       @content;
-     }
-   }
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
 
+@mixin pageHeader($font-size: 1.5rem, $line-height: 2rem, $font-weight: 700) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
 
+@mixin sectionHeader(
+  $font-size: 0.75rem,
+  $line-height: 1.25rem,
+  $font-weight: 700
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
 
-   @mixin pageHeader(
-    $font-size: 1.5rem,
-    $line-height: 2rem,
-    $font-weight: 700,
-   )
-   {
-    font-size : $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
-   }
-
-   @mixin sectionHeader(
-    $font-size: 0.75rem,
-    $line-height: 1.25rem,
-    $font-weight: 700,
-   )
-   {
-    font-size : $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
-   }
-
-   @mixin subHeader(
-    $font-size: 0.813rem,
-    $line-height: 1.125rem,
-    $font-weight: 700,
-   )
-   {
-    font-size : $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
-   }
-   @mixin bodyCopy(
-    $font-size: 0.813rem,
-    $line-height: 1.125rem,
-    $font-weight: 400,
-   )
-   {
-    font-size : $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
-   }
-   @mixin labels(
-    $font-size: 0.625rem,
-    $line-height: 1.25rem,
-    $font-weight: 700,
-   )
-   {
-    font-size : $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
-   }
+@mixin subHeader(
+  $font-size: 0.813rem,
+  $line-height: 1.125rem,
+  $font-weight: 700
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+@mixin bodyCopy(
+  $font-size: 0.813rem,
+  $line-height: 1.125rem,
+  $font-weight: 400
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+@mixin labels($font-size: 0.625rem, $line-height: 1.25rem, $font-weight: 700) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}

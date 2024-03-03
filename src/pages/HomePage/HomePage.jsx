@@ -7,7 +7,6 @@ import "./HomePage.scss";
 import axios from "axios";
 
 const apiKey = "292618a2-723c-4184-9e73-95f68f43f987";
-// const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
 const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
 function HomePage() {
@@ -81,38 +80,38 @@ function HomePage() {
       <div className="homepage__divide">
         <div className="homepage__description">
           <Main selectedVideo={selectedVideo} />
-          <Form onSubmit={handleCommentSubmit}/>
+          <Form onSubmit={handleCommentSubmit} />
           <Comments selectedVideo={selectedVideo} />
         </div>
 
         <div className="homepage__nextvideos">
           <p className="homepage__heading">NEXT VIDEOS</p>
-          
-            <div className="homepage__details">
-              <div className="homepage__detailsleft">
-                {heroVideo
-                  .filter((video) => video.id !== selectedVideo.id)
-                  .map((video) => (
-                    <Link key={video.id} to={`/videos/${video.id}`}>
-                      <img
-                        src={video.image}
-                        alt={video.title}
-                        className="homepage__video"
-                      />
-                    </Link>
-                  ))}
-              </div>
-              <div className="homepage__detailsright">
-                {heroVideo
-                  .filter((video) => video.id !== selectedVideo.id)
-                  .map((video) => (
-                    <div className="homepage__subheading">
-                      <p className="homepage__title">{video.title}</p>
-                      <p className="homepage__channel">{video.channel}</p>
-                    </div>
-                  ))}
-              </div>
+
+          <div className="homepage__details">
+            <div className="homepage__detailsleft">
+              {heroVideo
+                .filter((video) => video.id !== selectedVideo.id)
+                .map((video) => (
+                  <Link key={video.id} to={`/videos/${video.id}`}>
+                    <img
+                      src={video.image}
+                      alt={video.title}
+                      className="homepage__video"
+                    />
+                  </Link>
+                ))}
             </div>
+            <div className="homepage__detailsright">
+              {heroVideo
+                .filter((video) => video.id !== selectedVideo.id)
+                .map((video) => (
+                  <div className="homepage__subheading">
+                    <p className="homepage__title">{video.title}</p>
+                    <p className="homepage__channel">{video.channel}</p>
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

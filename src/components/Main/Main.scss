@@ -1,108 +1,104 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
-.main{
-    @include desktop{
-    margin:0 0 0 4rem;
+.main {
+  @include desktop {
+    margin: 0 0 0 4rem;
+  }
+  &__title {
+    @include pageHeader;
+    margin: 1rem 0 1rem 1rem;
+    @include desktop {
+      flex-grow: 1;
     }
-    &__title{
-        @include pageHeader;
-        margin:1rem 0 1rem 1rem;
-        @include desktop{
-        flex-grow: 1;
-        }
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 1rem;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
     }
-    &__left{
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin-left: 1rem;
-        @include tablet{
-            display: flex;
-            flex-direction: row;
-            margin:0;
-        }
-        @include desktop{
-            margin:0;
-            width:40%;
-        }
+    @include desktop {
+      margin: 0;
+      width: 40%;
     }
-    &__right{
-        display: flex;
-        flex-direction: column;
-        width: 40%;
-        margin:0 1rem 0 1rem;
-      
-        @include tablet{
-            display: flex;
-            flex-direction: row;
-            margin:0 0 0 9rem;
-        }
-        @include desktop{
-            margin:0 0 0 20rem;
-        }
-    }
-        &__channel{
-            @include subHeader;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 1rem 0 1rem;
 
-            @include tablet{
-                margin:1rem 2rem 0 0;
-                padding:0;
-            }
-        }
-        &__timestamp{
-            @include tablet{
-                margin:1rem 0 0 0;
-            }
-        }
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      margin: 0 0 0 9rem;
+    }
+    @include desktop {
+      margin: 0 0 0 20rem;
+    }
+  }
+  &__channel {
+    @include subHeader;
 
-        &__divider{
-            display: flex;
-            border-top: 2.5px solid $mercury;
-            border-bottom: 2.5px solid $mercury;
-            margin:0 1rem;
-            @include tablet{
-                border-top: none;
-            }
-            @include desktop{
-                margin:0 0 0 1rem;
-            }
-                
-        }
-        &__viewsicon{
-            margin-right:0.5rem;
-            width:1.5rem;
-        }
-        &__likesicon{
-            margin-right:0.5rem;
-            width:1.5rem;
-        }
-        &__views{
-            
-            display: flex;
-            @include tablet{
-                margin:0 2rem 1rem 0;
-            }
-        }
-        &__likes{
-            display: flex;
-            @include tablet{
-                margin:0 0 1rem 0;
-            }
-        }
-        
-    &__copy{
-        @include bodyCopy(0.75rem,1rem,600);
-        margin: 1rem;
-       
-       @include tablet{
-        @include bodyCopy(0.92rem,1.3rem,600);
-        padding:0 0.5rem 0 0;
-       }
-       @include desktop{
-        @include bodyCopy(1rem,1.3rem,600);
-        
+    @include tablet {
+      margin: 1rem 2rem 0 0;
+      padding: 0;
     }
+  }
+  &__timestamp {
+    @include tablet {
+      margin: 1rem 0 0 0;
     }
-    
+  }
+
+  &__divider {
+    display: flex;
+    border-top: 2.5px solid $mercury;
+    border-bottom: 2.5px solid $mercury;
+    margin: 0 1rem;
+    @include tablet {
+      border-top: none;
+    }
+    @include desktop {
+      margin: 0 0 0 1rem;
+    }
+  }
+  &__viewsicon {
+    margin-right: 0.5rem;
+    width: 1.5rem;
+  }
+  &__likesicon {
+    margin-right: 0.5rem;
+    width: 1.5rem;
+  }
+  &__views {
+    display: flex;
+    @include tablet {
+      margin: 0 2rem 1rem 0;
+    }
+  }
+  &__likes {
+    display: flex;
+    @include tablet {
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  &__copy {
+    @include bodyCopy(0.75rem, 1rem, 600);
+    margin: 1rem;
+
+    @include tablet {
+      @include bodyCopy(0.92rem, 1.3rem, 600);
+      padding: 0 0.5rem 0 0;
+    }
+    @include desktop {
+      @include bodyCopy(0.98rem, 1.4rem, 600);
+    }
+  }
 }

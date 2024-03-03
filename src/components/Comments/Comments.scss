@@ -2,71 +2,68 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.comments{
-    
-    @include desktop{
-        margin: 0 0 0 4rem;
+.comments {
+  @include desktop {
+    margin: 0 0 0 4rem;
+  }
+  &__divider {
+    display: flex;
+    border-top: 2px solid $mercury;
+    margin: 0 1rem;
+    width: 95%;
+    @include desktop {
+      width: 98%;
     }
-    &__divider{
-        display: flex;
-        border-top:2px solid $mercury;
-        margin:0 1rem;
-        width:95%;
-        @include desktop{
-            width:98%;
-        }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0 0.5rem;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
     }
-    &__top{
-        display: flex; 
-        justify-content: space-between;
-        margin:0 0 0 0.5rem;
-          @include tablet{
-            display: flex;
-            justify-content: space-between;
-          }
-          @include desktop{
-            margin:0 1rem;
-          }
+    @include desktop {
+      margin: 0 1rem;
     }
-    &__datediv{
-        display: flex;
-        align-items: right; 
+  }
+  &__datediv {
+    display: flex;
+    align-items: right;
+  }
+  &__name {
+    @include subHeader;
+    margin: 1rem 0 0 0;
+  }
+  &__right {
+    margin: 0 0.5rem;
+  }
+  &__description {
+    @include bodyCopy(0.75rem, 1rem, 600);
+    margin: 0 0 1rem 0.5rem;
+
+    @include tablet {
+      @include bodyCopy(0.92rem, 1.3rem, 600);
     }
-    &__name{
-        @include subHeader;
-        margin:1rem 0 0 0;    
+    @include desktop {
+      @include bodyCopy(1.02rem, 1.3rem, 600);
+      margin: 0 0 1rem 1rem;
     }
-    &__right{
-        margin:0 0.5rem;    
+  }
+  &__picture {
+    margin: 1rem 0 0 0;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: $mercury;
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
     }
-    &__description{
-        @include bodyCopy(0.75rem,1rem,600);
-        margin:0 0 1rem 0.5rem;
-    
-        @include tablet{
-            @include bodyCopy(0.92rem,1.3rem,600);
-        }
-        @include desktop{
-            @include bodyCopy(1.02rem,1.3rem,600);
-            margin:0 0 1rem 1rem; 
-        }
+    @include desktop {
+      margin: 1.6rem 0 0 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
-    &__picture {
-        margin: 1rem 0 0 0;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        background-color: $mercury;
-        @include tablet{
-            width:3rem;
-            height:3rem;
- 
-        }
-        @include desktop{
-            margin: 1.6rem 0 0 1rem;
-            width:2.5rem;
-            height:2.5rem;
-        }
-       
-    }
+  }
 }

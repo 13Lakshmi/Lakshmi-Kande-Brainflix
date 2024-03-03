@@ -76,6 +76,7 @@
     margin: 0.5rem 1rem 1rem 0;
     padding-left: 1rem;
     background-color: $mercury;
+    font-family: inherit;
     @include tablet {
       width: 97%;
       height: 3rem;
@@ -86,7 +87,7 @@
     }
     &::placeholder {
       color: $black;
-      @include bodyCopy;
+      @include bodyCopy(1rem, 1rem, 600);
     }
   }
 
@@ -98,6 +99,7 @@
     margin: 0.5rem 1rem 1rem 0;
     padding: 0.8rem 0 3rem 1rem;
     background-color: $mercury;
+    font-family: inherit;
     @include tablet {
       width: 97%;
       height: 6rem;
@@ -108,7 +110,7 @@
     }
     &::placeholder {
       color: $black;
-      @include bodyCopy;
+      @include bodyCopy(1rem, 1rem, 600);
     }
   }
   &__first {

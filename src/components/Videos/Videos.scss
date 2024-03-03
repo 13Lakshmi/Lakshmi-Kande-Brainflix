@@ -2,109 +2,97 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+.container {
+  margin: 0 1rem;
 
-*{
-    box-sizing: border-box;
-}
-body {
-    font-family: "AvenirNext LT Pro";
-}
-.container{
-    
-    margin:0 1rem;
-    
-    @include desktop{
-        border-left: 1px solid $silver;
-        display: flex;
-        flex-direction: column;
-        margin:0 0 0 0;
-    }
-    &__name{
-        color: $silver;
-        margin:0 0 1rem 1rem;
-        @include subHeader;
-        border-top:1px solid $silver;
-        padding:1rem 0 0 0;
+  @include desktop {
+    border-left: 1px solid $silver;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+  }
+  &__name {
+    color: $silver;
+    margin: 0 0 1rem 1rem;
+    @include subHeader;
+    border-top: 1px solid $silver;
+    padding: 1rem 0 0 0;
 
-        @include desktop{
-            margin: 1rem 0 1rem 2rem;
-            border: none;
-        }
+    @include desktop {
+      margin: 1rem 0 1rem 2rem;
+      border: none;
     }
-    &__block{
-        display: flex;
-         flex-direction: row;
-         @include tablet{
-            width: 52%;
-         }
+  }
+  &__block {
+    display: flex;
+    flex-direction: row;
+    @include tablet {
+      width: 52%;
     }
-    &__list{
-        margin:0;
-        padding:0;
-        @include desktop{
-            margin:0 0 0 1rem;
-        }
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    @include desktop {
+      margin: 0 0 0 1rem;
     }
-    &__img{
-        width:6rem;
-        height:4rem;
-        border-radius: 0.3rem;
-        margin: 0.5rem 0  1rem 1rem;
-        @include tablet{
-            width:9rem;
-            height:5rem;
-            border-radius: 0.3rem;
-            display:inline ;
-            margin: 0.5rem 0  1rem 1rem;
-        
-        }
-        @include desktop{
-            width:7rem;
-            height:4rem;
-        }
+  }
+  &__img {
+    width: 6rem;
+    height: 4rem;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0 1rem 1rem;
+    @include tablet {
+      width: 9rem;
+      height: 5rem;
+      border-radius: 0.3rem;
+      display: inline;
+      margin: 0.5rem 0 1rem 1rem;
     }
-    &__item{
-        list-style: none;
-        @include desktop{
-            display: flex;
-            width: 100%;
-        }
+    @include desktop {
+      width: 7rem;
+      height: 4rem;
     }
-    &__details{
-        @include desktop{
-            width:100%;
-        }
+  }
+  &__item {
+    list-style: none;
+    @include desktop {
+      display: flex;
+      width: 100%;
     }
-   
-    
-   
-    &__title{  
-        margin:0.5rem 0.5rem 0 1rem;
-        @include bodyCopy(0.65rem,1rem,700);
-        
-        @include tablet{
-        margin:0.5rem 0.5rem 0 1rem;
-        @include bodyCopy(0.8rem,1rem,600);
-        }
-        @include desktop{
+  }
+  &__details {
+    @include desktop {
+      width: 100%;
+    }
+  }
 
-            margin:0.5rem 0.5rem 0 1rem;
-            @include bodyCopy(0.6rem,1rem,600);
-            }
-    }
-    &__channel{
-        margin:1.2rem 0 0 1rem;
-        @include bodyCopy;
-    
-        @include tablet{
-        margin:3rem 0 0 1rem;
-        @include bodyCopy(0.875,0,600);
-        }
+  &__title {
+    margin: 0.5rem 0.5rem 0 1rem;
+    @include bodyCopy(0.65rem, 1rem, 700);
 
-        @include desktop{
-            margin:2.1rem 0 0 1rem;
-            @include bodyCopy(0.8rem,0,500);
-            width:8rem;
-        }
+    @include tablet {
+      margin: 0.5rem 0.5rem 0 1rem;
+      @include bodyCopy(0.8rem, 1rem, 600);
     }
+    @include desktop {
+      margin: 0.5rem 0.5rem 0 1rem;
+      @include bodyCopy(0.6rem, 1rem, 600);
+    }
+  }
+  &__channel {
+    margin: 1.2rem 0 0 1rem;
+    @include bodyCopy;
+
+    @include tablet {
+      margin: 3rem 0 0 1rem;
+      @include bodyCopy(0.875, 0, 600);
+    }
+
+    @include desktop {
+      margin: 2.1rem 0 0 1rem;
+      @include bodyCopy(0.8rem, 0, 500);
+      width: 8rem;
+    }
+  }
 }
