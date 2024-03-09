@@ -7,11 +7,6 @@ import "./HomePage.scss";
 import axios from "axios";
 
 
-console.log(process.env);
-//const imageURL ="http://localhost:8080/Images";
-//const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
-
-
 const { REACT_APP_BACKEND_URL, REACT_APP_IMAGEURL, REACT_APP_DEFAULTVIDEOID } = process.env;
 
 
@@ -27,7 +22,6 @@ function HomePage() {
     const getVideos = async () => {
       try {
         const response = await axios.get(`${REACT_APP_BACKEND_URL}/videos`);
-        console.log(response);
         setHeroVideo(response.data);
       } catch (e) {
         console.log("error fetching videos:", e);
@@ -59,45 +53,30 @@ function HomePage() {
 
 
 
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
-   
-    try {
-      const response = await axios.post(`${REACT_APP_BACKEND_URL}/comments`,newComment);
-      console.log(response.data);
-      setNewComment([...newComment, response.data]);
-      setNewComment({ name: "", comment: "" });
-    } catch (e) {
-      console.log("error adding comment:", e);
+
+  function handleForm(event) {
+    event.preventDefault();
+
+    const newComment = {
+      comment: event.target.comment.value,
+    };
+
+    async function postComment() {
+      // POST new comment
+      const response = await axios.post(
+        "http://localhost:8080/comments/",
+        newComment
+      );
+
+      async function getComments() {
+        const response = await axios.get("http://localhost:8080/comments/");
+        setNewComment(response.data);
+      }
+      getComments();
     }
-  };
 
-
-  // function handleForm(event) {
-  //   event.preventDefault();
-
-  //   // create new compliment object with form input data
-  //   const newComment = {
-  //     comment: event.target.comment.value,
-  //   };
-
-  //   async function postComment() {
-  //     // POST new comment
-  //     const response = await axios.post(
-  //       "http://localhost:8080/comments/",
-  //       newComment
-  //     );
-
-  //     // - once post has completed => get the newly updated compliments data
-  //     async function getComments() {
-  //       const response = await axios.get("http://localhost:8080/comments/");
-  //       setComments(response.data);
-  //     }
-  //     getComments();
-  //   }
-
-  //   postComment();
-  // }
+    postComment();
+  }
 
   return (
     <div className="homepage">
@@ -110,7 +89,7 @@ function HomePage() {
       <div className="homepage__divide">
         <div className="homepage__description">
           <Main selectedVideo={selectedVideo} />
-          <Form onSubmit={handleCommentSubmit} />
+          <Form onSubmit={handleForm} />
           <Comments selectedVideo={selectedVideo} />
         </div>
 

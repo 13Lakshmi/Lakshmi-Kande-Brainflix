@@ -3,15 +3,47 @@ import "./UploadVideoPage.scss";
 import { useNavigate } from "react-router-dom";
 import publish from "../../assets/Icons/publish.svg";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import {useState} from "react";
 
 
 function UploadVideoPage() {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    title: "",
+    description: ""
+  });
 
-  const handleFormSubmit = (e) => {
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for uploading");
-    navigate("/");
+    try {
+      
+      const imageBaseURL = process.env.REACT_APP_IMAGE_BASE_URL;
+      const imagePath = `${imageBaseURL}/image9.jpg`;
+
+      const newVideo = {
+        title: e.target.title.value,
+        description: e.target.description.value,
+        image: imagePath
+        
+      };
+      await axios.post("http://localhost:8080/", newVideo);
+      navigate("/");
+    } catch (error) {
+      console.error("Error uploading video:", error);
+    }
+  };
+
+
+  const handlePublishButtonClick = (e) => {
+    handleFormSubmit(e);
   };
 
   return (
@@ -31,6 +63,7 @@ function UploadVideoPage() {
               type="text"
               className="uploadvideo__input"
               placeholder="Add a title to your video"
+              onChange={handleInputChange}
               required
               focus
             ></input>
@@ -41,15 +74,16 @@ function UploadVideoPage() {
               type="text"
               className="uploadvideo__textarea"
               placeholder="Add a description to your video"
+              onChange={handleInputChange}
               required
               focus
             ></textarea>
           </div>
         </div>
         <div className="uploadvideo__third">
-          <img className="uploadvideo__icon" src={publish} alt="upload" />
+          <img className="uploadvideo__icon" onClick={handlePublishButtonClick}src={publish} alt="upload" />
           <button className="uploadvideo__buttonname"> PUBLISH</button>
-          <Link to="/">
+          <Link to="/" className="uploadvideo__link">
             <p className="uploadvideo__name">CANCEL</p>
           </Link>
         </div>

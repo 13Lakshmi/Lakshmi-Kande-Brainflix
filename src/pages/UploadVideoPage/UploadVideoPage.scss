@@ -171,8 +171,10 @@
       margin: 2rem 0 0 0;
     }
   }
-  &__name {
+  &__link{
     text-decoration: none;
+  }
+  &__name { 
     color: $blue;
     @include subHeader;
     text-align: center;
