@@ -83,8 +83,8 @@
   &__title {
     text-decoration: none;
     color: black;
-    margin: 0.8rem 0.5rem 0 1rem;
-    @include bodyCopy(0.65rem, 1rem, 700);
+    margin: 0.5rem 0.5rem 0 1rem;
+    @include bodyCopy(0.813rem,1.125rem,600);
 
     @include tablet {
       margin: 1.3rem 0.5rem 0 1rem;
@@ -99,7 +99,7 @@
     text-decoration: none;
     color: black;
     display: inline-flex;
-    margin: 1.5rem 0 0 1rem;
+    margin: 1.4rem 0 0 1rem;
     @include bodyCopy;
 
     @include tablet {

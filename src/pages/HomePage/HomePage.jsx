@@ -7,10 +7,13 @@ import "./HomePage.scss";
 import axios from "axios";
 
 
-const imageURL ="http://localhost:8080/Images";
+console.log(process.env);
+//const imageURL ="http://localhost:8080/Images";
+//const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
-//const apiKey = "292618a2-723c-4184-9e73-95f68f43f987";
-const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
+
+const { REACT_APP_BACKEND_URL, REACT_APP_IMAGEURL, REACT_APP_DEFAULTVIDEOID } = process.env;
+
 
 function HomePage() {
   const [heroVideo, setHeroVideo] = useState([]);
@@ -19,11 +22,12 @@ function HomePage() {
 
   const params = useParams();
 
-  
+  // GET all videos from our server
   useEffect(() => {
     const getVideos = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/videos");
+        const response = await axios.get(`${REACT_APP_BACKEND_URL}/videos`);
+        console.log(response);
         setHeroVideo(response.data);
       } catch (e) {
         console.log("error fetching videos:", e);
@@ -32,23 +36,51 @@ function HomePage() {
     getVideos();
   }, []);
 
+ 
+
   useEffect(() => {
-    const getSelectedVideo = async () => {
+    const getSelectedVideo = async (id) => {
       try {
-        const response = await axios.get("http://localhost:8080/videos/84e96018-4022-434e-80bf-000ce4cd12b8");
+        const response = await axios.get(`${REACT_APP_BACKEND_URL}/videos/${id}`);
         setSelectedVideo(response.data);
+        setNewComment(response.data.newComment);
       } catch (e) {
-        console.log("error fetching videos:", e);
-      }
+        console.log("Error fetching selected video with id:", e);
+      } 
     };
     getSelectedVideo();
-  }, []);
+    if (params.id) {
+      getSelectedVideo(params.id);
+    } else {
+      getSelectedVideo(REACT_APP_DEFAULTVIDEOID);
+    }
+    
+  }, [params]);
 
-  // function handleForm(event){
+
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+   
+    try {
+      const response = await axios.post(`${REACT_APP_BACKEND_URL}/comments`,newComment);
+      console.log(response.data);
+      setNewComment([...newComment, response.data]);
+      setNewComment({ name: "", comment: "" });
+    } catch (e) {
+      console.log("error adding comment:", e);
+    }
+  };
+
+
+  // function handleForm(event) {
   //   event.preventDefault();
+
+  //   // create new compliment object with form input data
   //   const newComment = {
-  //     comment: event.target.compliment.value,
+  //     comment: event.target.comment.value,
   //   };
+
   //   async function postComment() {
   //     // POST new comment
   //     const response = await axios.post(
@@ -59,55 +91,18 @@ function HomePage() {
   //     // - once post has completed => get the newly updated compliments data
   //     async function getComments() {
   //       const response = await axios.get("http://localhost:8080/comments/");
-  //       setNewComment(response.data);
+  //       setComments(response.data);
   //     }
   //     getComments();
   //   }
 
   //   postComment();
   // }
-  
-
-
-  useEffect(() => {
-
-    const getSelectedVideo = async (id) => {
-      try {
-        const response = await axios.get("http://localhost:8080/videos/84e96018-4022-434e-80bf-000ce4cd12b8");
-        setSelectedVideo(response.data);
-        setNewComment(response.data.newComment);
-      } catch (e) {
-        console.log("Error fetching selected video with id:", e);
-      }
-      getSelectedVideo();
-    };
-
-    if (params.id) {
-      getSelectedVideo(params.id);
-    } else {
-      getSelectedVideo(defaultVideoId);
-    }
-  }, [params]);
-
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // const response = await axios.post(
-      //   `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
-      //   newComment
-      // );
-      const response = await axios.get("http://localhost:8080/videos/");
-      setNewComment([...newComment, response.data]);
-      setNewComment({ name: "", comment: "" });
-    } catch (e) {
-      console.log("error adding comment:", e);
-    }
-  };
 
   return (
     <div className="homepage">
       <video
-        poster={`${imageURL}/${selectedVideo.image}`}
+        poster={`${REACT_APP_IMAGEURL}/${selectedVideo.image}`}
         alt={selectedVideo.title}
         className="homepage__fullimage"
         controls={true}
@@ -130,9 +125,9 @@ function HomePage() {
                   <Link className="homepage__link" key={`${video.id}`} to={`/videos/${video.id}`}>
                   <div className="homedetails__left">
                     <img
-                      src={video.image}
-                      alt={video.title}
-                      className="homepage__video"
+                       src={`${REACT_APP_IMAGEURL}/${video.image}`}
+                       alt={video.title}
+                       className="homepage__video"
                     />
                   </div>
                   <div className="homedetails__right">
