@@ -1,6 +1,5 @@
 import "./Comments.scss";
 function Comments(props) {
-  console.log(props.selectedVideo);
   return (
     <div className="comments">
       {props.selectedVideo.comments

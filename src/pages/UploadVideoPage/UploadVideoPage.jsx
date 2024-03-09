@@ -2,6 +2,8 @@ import uploadvideo from "../../assets/Images/Upload-video-preview.jpg";
 import "./UploadVideoPage.scss";
 import { useNavigate } from "react-router-dom";
 import publish from "../../assets/Icons/publish.svg";
+import { Link } from "react-router-dom";
+
 
 function UploadVideoPage() {
   const navigate = useNavigate();
@@ -47,9 +49,10 @@ function UploadVideoPage() {
         <div className="uploadvideo__third">
           <img className="uploadvideo__icon" src={publish} alt="upload" />
           <button className="uploadvideo__buttonname"> PUBLISH</button>
-          <p className="uploadvideo__name">CANCEL</p>
+          <Link to="/">
+            <p className="uploadvideo__name">CANCEL</p>
+          </Link>
         </div>
-        <div className="uploadvideo__cancel"></div>
       </form>
     </div>
   );

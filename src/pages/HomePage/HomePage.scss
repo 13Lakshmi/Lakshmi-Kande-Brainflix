@@ -46,14 +46,16 @@
     }
   }
   &__details {
-    display: flex;
-    flex-direction: row;
     @include tablet {
       width: 48%;
     }
     @include desktop {
       margin-left: 1rem;
     }
+  }
+  &__link{
+    text-decoration: none;
+    display: flex;
   }
   &__video {
     width: 6rem;

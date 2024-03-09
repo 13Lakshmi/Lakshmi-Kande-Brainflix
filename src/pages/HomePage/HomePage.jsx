@@ -6,7 +6,10 @@ import { Link, useParams } from "react-router-dom";
 import "./HomePage.scss";
 import axios from "axios";
 
-const apiKey = "292618a2-723c-4184-9e73-95f68f43f987";
+
+const imageURL ="http://localhost:8080/Images";
+
+//const apiKey = "292618a2-723c-4184-9e73-95f68f43f987";
 const defaultVideoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
 function HomePage() {
@@ -16,35 +19,67 @@ function HomePage() {
 
   const params = useParams();
 
+  
   useEffect(() => {
     const getVideos = async () => {
       try {
-        const response = await axios.get(
-          `https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${apiKey}`
-        );
-        console.log(response);
+        const response = await axios.get("http://localhost:8080/videos");
         setHeroVideo(response.data);
       } catch (e) {
-        console.log("error:", e);
+        console.log("error fetching videos:", e);
       }
     };
     getVideos();
   }, []);
 
   useEffect(() => {
-    console.log("params:");
+    const getSelectedVideo = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/videos/84e96018-4022-434e-80bf-000ce4cd12b8");
+        setSelectedVideo(response.data);
+      } catch (e) {
+        console.log("error fetching videos:", e);
+      }
+    };
+    getSelectedVideo();
+  }, []);
+
+  // function handleForm(event){
+  //   event.preventDefault();
+  //   const newComment = {
+  //     comment: event.target.compliment.value,
+  //   };
+  //   async function postComment() {
+  //     // POST new comment
+  //     const response = await axios.post(
+  //       "http://localhost:8080/comments/",
+  //       newComment
+  //     );
+
+  //     // - once post has completed => get the newly updated compliments data
+  //     async function getComments() {
+  //       const response = await axios.get("http://localhost:8080/comments/");
+  //       setNewComment(response.data);
+  //     }
+  //     getComments();
+  //   }
+
+  //   postComment();
+  // }
+  
+
+
+  useEffect(() => {
 
     const getSelectedVideo = async (id) => {
       try {
-        const response = await axios.get(
-          `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}?api_key=${apiKey}`
-        );
-        console.log(response);
+        const response = await axios.get("http://localhost:8080/videos/84e96018-4022-434e-80bf-000ce4cd12b8");
         setSelectedVideo(response.data);
         setNewComment(response.data.newComment);
       } catch (e) {
-        console.log("error:", e);
+        console.log("Error fetching selected video with id:", e);
       }
+      getSelectedVideo();
     };
 
     if (params.id) {
@@ -57,11 +92,11 @@ function HomePage() {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
-        newComment
-      );
-      console.log("comment added", response.data);
+      // const response = await axios.post(
+      //   `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${selectedVideo.id}/comments?api_key=${apiKey}`,
+      //   newComment
+      // );
+      const response = await axios.get("http://localhost:8080/videos/");
       setNewComment([...newComment, response.data]);
       setNewComment({ name: "", comment: "" });
     } catch (e) {
@@ -72,7 +107,7 @@ function HomePage() {
   return (
     <div className="homepage">
       <video
-        poster={selectedVideo.image}
+        poster={`${imageURL}/${selectedVideo.image}`}
         alt={selectedVideo.title}
         className="homepage__fullimage"
         controls={true}
@@ -88,29 +123,26 @@ function HomePage() {
           <p className="homepage__heading">NEXT VIDEOS</p>
 
           <div className="homepage__details">
-            <div className="homepage__detailsleft">
-              {heroVideo
+          
+          {heroVideo
                 .filter((video) => video.id !== selectedVideo.id)
-                .map((video) => (
-                  <Link key={video.id} to={`/videos/${video.id}`}>
+                ?.map((video) => (
+                  <Link className="homepage__link" key={`${video.id}`} to={`/videos/${video.id}`}>
+                  <div className="homedetails__left">
                     <img
                       src={video.image}
                       alt={video.title}
                       className="homepage__video"
                     />
+                  </div>
+                  <div className="homedetails__right">
+                    <div className="homepage__subheading">
+                      <p className="homepage__title">{video.title}</p>
+                      <p className="homepage__channel">{video.channel}</p>
+                    </div>
+                  </div>
                   </Link>
                 ))}
-            </div>
-            <div className="homepage__detailsright">
-              {heroVideo
-                .filter((video) => video.id !== selectedVideo.id)
-                .map((video) => (
-                  <div className="homepage__subheading">
-                    <p className="homepage__title">{video.title}</p>
-                    <p className="homepage__channel">{video.channel}</p>
-                  </div>
-                ))}
-            </div>
           </div>
         </div>
       </div>

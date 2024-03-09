@@ -172,6 +172,7 @@
     }
   }
   &__name {
+    text-decoration: none;
     color: $blue;
     @include subHeader;
     text-align: center;
