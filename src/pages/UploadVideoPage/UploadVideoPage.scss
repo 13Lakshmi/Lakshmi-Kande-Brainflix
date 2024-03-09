@@ -90,6 +90,13 @@
       @include bodyCopy(1rem, 1rem, 600);
     }
   }
+  &__input:focus {
+    outline-color: $black;
+}
+
+&__input:invalid {
+    outline-color: #D22D2D;
+}
 
   &__textarea {
     width: 94%;

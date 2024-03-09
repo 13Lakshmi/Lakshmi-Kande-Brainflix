@@ -34,7 +34,7 @@ function UploadVideoPage() {
         image: imagePath
         
       };
-      await axios.post("http://localhost:8080/", newVideo);
+      await axios.post("http://localhost:8080/videos", newVideo);
       navigate("/");
     } catch (error) {
       console.error("Error uploading video:", error);
@@ -61,22 +61,22 @@ function UploadVideoPage() {
             </label>
             <input
               type="text"
+              name="title"
               className="uploadvideo__input"
               placeholder="Add a title to your video"
               onChange={handleInputChange}
-              required
-              focus
+              required  
             ></input>
             <label htmlFor="name" className="uploadvideo__label">
               ADD A VIDEO DESCRIPTION
             </label>
             <textarea
               type="text"
+              name="description"
               className="uploadvideo__textarea"
               placeholder="Add a description to your video"
               onChange={handleInputChange}
-              required
-              focus
+              required 
             ></textarea>
           </div>
         </div>
